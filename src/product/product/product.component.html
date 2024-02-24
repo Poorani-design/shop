@@ -1,0 +1,68 @@
+<app-edit-product [editProductId]="editProductId"></app-edit-product>
+<div class="conatiner-fluid bg-white px-2">
+    <div class="row">
+        <div class="heading d-flex justify-content-between my-3">
+            <div class="title-section">
+
+                <div class="title">
+                    <h3>Product</h3>
+                </div>
+            </div>
+            <div class="add-product-section">
+
+                <button class="btn btn-md btn-success"  data-bs-toggle="modal" data-bs-target="#newProductModel">New Product</button>
+            </div>
+        </div>
+        <div class="table-responsive custom-table">
+            <div class="table table-bordered">
+                <table>
+                    <tr class="text-center align-content-center">
+                        <th>S.No</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Offer Price</th>
+                        <th>Category</th>
+                        <th>Brand</th>
+                        <th>Image</th>
+                        <th>Quantity</th>
+                        <th>Description</th>
+                        <th>Other Details</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr *ngFor="let product of productList; let i=index;">
+                        <td>{{i+1}}</td>
+                        <td>{{product.product_name}}</td>
+                        <td>{{product.product_price}}</td>
+                        <td>{{product.product_offer_price}}</td>
+                        <td>{{product.product_category_id}}</td>
+                        <td>{{product.product_brand_id}}</td>
+                        <!-- <td>{{product.product_img}}</td> -->
+                        <td><img class="img-fluid" style="width:25px;height:25px;"
+                            [src]="'../../assets/uploads/products/'+product.product_img" loading="lazy" alt=""></td>
+                        <td>{{product.product_stock_quantity}}</td>
+                        <td>{{product.product_description}}</td>
+                        <td>{{product.product_remarks}}</td>
+                        <td>
+                            <div class="action d-flex ">
+                                <div class="mx-1">
+                                    <button class="btn btn-sm btn-warning" (click)="editSingleProduct(product.product_id)" >Edit</button>
+                                </div>
+                                <div class="mx-1">
+
+                                    <button  (click)="deleteSingleProduct(product.product_id)"  class="btn btn-sm btn-danger">Delete</button>
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="newProductModel" tabindex="-1" aria-labelledby="newProductModelLabel" aria-hidden="true">
+    <app-add-product (productAdded)="onProductAdded()"></app-add-product>
+  </div>
+  

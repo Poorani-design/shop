@@ -1,0 +1,59 @@
+<form action="POST" [formGroup]="singleProductForm" enctype="multipart/form-data" (ngSubmit)="updateProduct()">
+    <!-- [formGroup]="editProductForm" -->
+    <div class="row">
+        <!-- <p>Edit Product ID: {{ editProductId }}</p> -->
+        <div class="col-md-6">
+            <input type="text" class="form-control mb-3" formControlName="product_name" placeholder="Ex : HP Laptop">
+            <input type="text" class="form-control mb-3" formControlName="product_price" placeholder="Product price">
+
+            <input type="text" class="form-control mb-3" formControlName="product_offer_price"
+                placeholder="Promotional price">
+            <input type="text" class="form-control mb-3" formControlName="product_category_id" placeholder="Category">
+
+            <input type="text" class="form-control mb-3" formControlName="product_brand_id" placeholder="Brand">
+            <input type="text" class="form-control mb-3" formControlName="product_stock_quantity"
+                placeholder="Total Quantity">
+        </div>
+        <div class="col-md-6">
+            <textarea type="text" rows="5" class="form-control mb-3" formControlName="product_description"
+                placeholder="Description"></textarea>
+            <textarea type="text" rows="5" class="form-control mb-3" formControlName="product_remarks"
+                placeholder="More information about product"></textarea>
+
+        </div>
+    </div>
+    <!-- Input field for selecting a new brand image file -->
+    <div class="d-flex justify-content-start mb-3">
+        <div>
+            <button class="btn btn-sm btn-warning py-2" style="width:150px;border-radius: 0;padding:50px 0;"
+                (click)="fileInput.click()">Choose
+                File</button>
+        </div>
+        <div>
+
+            <input type="file" (change)="onUpdateProductFile($event)" #fileInput style="display:none;"
+                class="form-control" id="updateProductimg">
+            <input type="text" class="form-control-customized mb-2 outline-remove" 
+                [readonly]="true" (click)="fileInput.click()" formControlName="new_product_img"
+                placeholder="{{productImageName|| fileName }} " [disabled]="true" >
+
+            <img [src]="imagePreviewUrl" *ngIf="imagePreviewUrl" class="img-preview" alt="Product Image"
+                style="width:50px;height:50px;">
+
+        </div>
+        <!-- <p>{{productImageName|| fileName }} filename</p> -->
+
+        </div>
+        <div class="modal-footer">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+                </div>
+                <div>
+
+                    <button type="submit" class="btn btn-success btn-sm ">Update</button>
+                </div>
+            </div>
+
+        </div>
+</form>

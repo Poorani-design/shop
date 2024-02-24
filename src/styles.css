@@ -1,1 +1,112 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --color-primary:#FB2576;
+    --color-danger:#3FA796;
+    --color-success:#80A1F2;
+    --color-warning:#FEC260;
+    --color-white:#fff;
+    --color-info-dark:#7d8da1;
+    --color-info-light:#dce1eb;
+    --color-dark:#363949;
+    --color-light:rgba(132, 139, 200,0.18);
+    --color-primary-variant:#677483;
+    --color-background:#f6f6f9;
+
+    --card-border-radius:2rem;
+    --border-radius-1:0.4rem;
+    --border-radius-2:0.8rem;
+    --border-radius-3:1.2rem;
+
+    --card-padding:1.8rem;
+    --padding-1:1.2rem;
+
+    --box-shadow:0 2rem 3rem var(--color-light); 
+
+    --aside-background-color:gray;
+    --top-background-color:#fff;
+    --white-color:#fff;
+
+}
+/* ======= dark theme variables ============== */
+.dark-theme-variables{
+    --color-background:#181a1e;
+    --color-white:#202528;
+    --color-dark:#edeffd;
+    --color-dark-variant:#a3bdcc;
+    --color-light:rgba(0,0,0,0.4);
+    --box-shadow:0 2rem 3rem var(--color-light);
+}
+/* ======= dark theme variables end ============== */
+
+body{
+    width:100vw;
+    height: 100vh;
+    font-family:Poppins,sans-serif;
+    font-size: 0.88rem;
+    background: var(--color-background);
+    user-select: none;
+    color:var(--color-dark);
+    /* overflow-x: hidden; */
+}
+
+/* Additional styling for specific elements if needed */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Custom class */
+.custom-heading {
+    font-family: 'Roboto', sans-serif;
+}
+
+.divider {
+    height: 100%;
+    width: 2px;
+    border-radius: 5px;
+    background: rgba(7, 199, 167, 0.7)
+}
+
+.hr-divider {
+    border-top: 1px solid #ccc;
+    height: 3px;
+    width: 100%;
+}
+
+.outline-remove:hover {
+    outline: none;
+    outline-width: 0;
+    outline-color: none;
+    cursor: pointer;
+}
+.outline-remove:focus{
+    outline: none!important;
+}
+.form-control-customized{
+    border-radius: 0;cursor: pointer;outline:none;outline-width: 0;outline-color: none;
+        display: block;
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--bs-body-color);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: var(--bs-body-bg);
+        background-clip: padding-box;
+        border: var(--bs-border-width) solid var(--bs-border-color);
+        border-radius: var(--bs-border-radius);
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;   
+}
+.form-control-customized::placeholder {
+    caret-color: transparent; /* Hide the caret */
+  }
+
+  .custom-table {
+    max-height: 75vh; /* Set maximum height for the table */
+    /* overflow-y: auto; Enable vertical scroll if content overflows */
+  }

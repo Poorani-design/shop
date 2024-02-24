@@ -1,0 +1,53 @@
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="POST" [formGroup]="addProductForm" enctype="multipart/form-data" (ngSubmit)="addProduct()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control mb-3" formControlName="product_name"
+                            placeholder="Ex : HP Laptop">
+                        <input type="text" class="form-control mb-3" formControlName="product_price"
+                            placeholder="Product price">
+
+                        <input type="text" class="form-control mb-3" formControlName="product_offer_price"
+                            placeholder="Promotional price">
+                        <input type="text" class="form-control mb-3" formControlName="product_category_id"
+                            placeholder="Category">
+
+                        <input type="text" class="form-control mb-3" formControlName="product_brand_id"
+                            placeholder="Brand">
+                        <input type="text" class="form-control mb-3" formControlName="product_stock_quantity"
+                            placeholder="Total Quantity">
+                    </div>
+                    <div class="col-md-6">
+                        <textarea type="text" rows="5" class="form-control mb-3" formControlName="product_description"
+                            placeholder="Description"></textarea>
+                        <textarea type="text" rows="5" class="form-control mb-3" formControlName="product_remarks"
+                            placeholder="More information about product"></textarea>
+                    </div>
+                </div>
+
+                <input name="image" class="form-control form-control-sm mb-3" (change)="onChangeFileInAddForm($event)"
+                    id="productimgid" type="file" accept=".jpg,.png">
+
+                <div class="modal-footer">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        <div>
+
+                            <button type="submit" class="btn btn-success btn-sm ">Add</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

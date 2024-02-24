@@ -1,0 +1,110 @@
+echo "# ecommerceAdminFE" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin https://github.com/Poorani-design/ecommerceAdminFE.git
+git push -u origin master
+
+or push an existing repository from the command line
+git remote add origin https://github.com/Poorani-design/ecommerceAdminFE.git
+git branch -M master
+git push -u origin master
+
+
+npm install bootstrap
+
+npm i @popperjs/core
+
+"styles": [
+              ...
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+          ],
+"scripts": [
+              ...
+               "node_modules/bootstrap/dist/js/bootstrap.min.js"
+           ]
+
+
+//INSTALL NODE PACKAGE MANAGER
+npm i 
+
+//INSTALL BOOTSTRAP
+npm install bootstrap@v5.2.3
+
+//Add bootstrap css in angular.json
+"./node_modules/bootstrap/dist/css/bootstrap.min.css",
+
+
+//Add bootstrap js in angular.json
+ "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
+
+//INSTALL SWIPER
+npm i swiper
+
+//install font-awesome
+npm i angular-font-awesome
+
+// ADD FONT AWESOME css IN ANGULAR.JSON
+"../node_modules/font-awesome/css/font-awesome.css"
+
+Install Packages 
+npm install --save font-awesome angular-font-awesome
+
+// IF NOT ADD FONT AWESOME IN ANGULAR.JSON
+ADD CSS STYLESHEET IN INDEX.HTML
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+
+ng add @nguniversal/express-engine
+
+
+
+npm install --save @fortawesome/fontawesome-free
+
+
+///SWIPER LINK
+https://stackblitz.com/edit/swiper-angular-example?file=src%2Fapp%2Fapp.module.ts
+
+
+//font awesome linkg
+https://fontawesome.com/versions#stacked
+
+//for datatable installation url link
+https://www.devwares.com/docs/contrast/angular/Installation/
+
+//npm command
+
+npm install --save ng-cdbangular
+
+//angular.json
+"styles": [
+  "node_modules/ng-cdbangular/assets/scss/cdb.scss"
+]
+
+//update angular 
+npm outdated
+ng update
+ng update @angular/cli
+npm outdated
+
+
+//install chart js
+npm install chart.js
+//follow below link for chart js
+https://sweetcode.io/how-to-build-charts-in-angular-using-chart-js/
+
+
+Steps followed
+=============
+1, Install the below package
+     ng add angular-datatables
+2, Add datatableModule in app.module
+3, Add datatable directive in table
+4, Add dtOptions
+5, Add dtTrigger for refresh data
+
+https://www.youtube.com/watch?v=bihanbsgsoQ

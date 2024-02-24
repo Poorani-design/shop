@@ -1,0 +1,114 @@
+<div class="container d-flex justify-content-between">
+    <!-- <div class="title">
+        <h1>Brand</h1>
+    </div> -->
+
+
+</div>
+
+<div class="container mt-5">
+
+    <div class="row justify-content-evenly">
+        <div class="col-md-4 col-sm-12">
+            <div class="brand-header d-flex justify-content-end">
+            </div>
+            <div class="add-form" *ngIf="show">
+                <h3>Add Brand</h3>
+                <form action="POST" [formGroup]="form" enctype="multipart/form-data" (ngSubmit)="addBrand()">
+                    <input type="text" class="form-control mb-3" formControlName="brand_name" placeholder="Ex : Hp">
+                    <input name="image" class="form-control form-control-sm mb-3" id="brandimg" type="file">
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-success btn-sm ">Add</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="edit-form" *ngIf="!show">
+                <!--  -->
+                <div class="header d-flex justify-content-between mb-3">
+                    <div class="title">
+                        <h3>Edit Brand</h3>
+                    </div>
+                    <div class="add-button-section">
+
+                        <button class="btn btn-primary btn-sm" (click)="show=true;">Add New Brand</button>
+                    </div>
+
+                </div>
+                <div class="hr-divider mb-3"></div>
+                <form [formGroup]="singleBrandForm" enctype="multipart/form-data" (ngSubmit)="updateBrand()">
+                    <input type="text" class="form-control mb-3" formControlName="brand_name">
+
+                    <!-- Input field for selecting a new brand image file -->
+                    <div class="d-flex justify-content-start mb-3">
+                        <div>
+                            <button class="btn btn-sm btn-warning py-2"
+                                style="width:150px;border-radius: 0;padding:50px 0;" (click)="fileInput.click()">Choose
+                                File</button>
+                        </div>
+                        <div>
+
+                            <input type="file" (change)="onUpdateBrandFile($event)" #fileInput style="display:none;"
+                                class="form-control" id="updateBrandimg">
+                            <input type="text" class="form-control-customized mb-2 outline-remove" id="new_brand_img"
+                                [readonly]="true" (click)="fileInput.click()" formControlName="new_brand_img"
+                                placeholder="No file chosen"
+                                [disabled]="true">
+                        </div>
+                    </div>
+                    <div class="display-image">
+                        <!-- Display the brand image -->
+                        <img [src]="newimgSrcUrl || imgSrcUrl" height="100px" width="100px" alt="Brand Image"
+                            class="mb-3">
+                    </div>
+                    <!-- <p>{{singleBrandForm.new_brand_img || fileName}}</p> -->
+                    <div class="update-btn d-flex justify-content-end">
+                        <button type="submit" class="btn btn-success btn-sm">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-1 d-none d-md-block">
+            <div class="divider"></div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+            <div class="d-flex justify-content-start custom-table">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="">
+                                <th>S.no</th>
+                                <th>Name</th>
+                                <th>Logo</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let brand of brandList; let i=index;">
+                                <td>{{ i + 1 }}</td>
+                                <td>{{ brand.brand_name }}</td>
+
+                                <!-- <td>{{ brand.brand_img }}</td> -->
+                                <td><img class="img-fluid" style="width:25px;height:25px;"
+                                        [src]="'../../assets/uploads/brands/'+brand.brand_img" loading="lazy" alt="">
+                                </td>
+                                <td>
+                                    <div class="d-flex">
+                                        <button class="btn btn-warning btn-sm mx-2"
+                                            (click)="getSelectBrandId(brand.brand_id)">
+                                            Edit
+                                        </button>
+                                        <button (click)="deleteBrand(brand.brand_id)"
+                                            class="btn btn-danger btn-sm mx-2">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
