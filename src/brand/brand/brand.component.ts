@@ -16,6 +16,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { CommonUtilityService } from '../../app/common/common-utility.service';
 
 
 @Component({
@@ -54,9 +55,13 @@ export class BrandComponent {
       new_brand_img: [''],
     });
   }
+ngOnInit(){
+  this.getAllBrandList();
+}
   getAllBrandList() {
     this.api.getBrandApi().subscribe((res) => {
       this.brandList = res.data;
+      console.log("brand component",res.data.length)
     });
   }
   

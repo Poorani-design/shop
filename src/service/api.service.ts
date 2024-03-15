@@ -1,14 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
+  
+  private isAuthenticated: boolean = false;
+
+  post<T>(arg0: string, arg1: { username: string; password: string; }) {
+    throw new Error('Method not implemented.');
+  }
   apiUrl = 'http://localhost:3000';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router:Router) {
     this.getBrandApi();
   }
 
@@ -86,6 +93,25 @@ export class ApiService {
   //update product data
   updateSingleProduct(data:any,product_id:any):Observable<any>{
     return this.http.put(`${this.apiUrl}/updateSingleProduct/${product_id}`, data);
+  }
+
+  //get user data
+  login(username:any, password:any):Observable<any>{
+    return this.http.get(`${this.apiUrl}/user/${username}/${password}`)
+  }
+  setLoggedIn(): void {
+    this.isAuthenticated = true;
+    localStorage.setItem('user', 'true'); // Store authentication state
+  }
+
+  logout(): void {
+    localStorage.removeItem('user'); // Remove authentication state
+    this.isAuthenticated = false;
+  }
+
+  isLoggedIn(): boolean {
+    // Check if the user is logged in based on stored authentication state
+    return !!localStorage.getItem('user');
   }
 
 

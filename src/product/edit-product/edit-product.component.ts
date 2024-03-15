@@ -27,6 +27,7 @@ import { ApiService } from '../../service/api.service';
 })
 export class EditProductComponent {
   
+  @Output() productAdded: EventEmitter<any> = new EventEmitter<any>();
   @Input() editProductId: any;
   @ViewChild('fileInput') fileInput: ElementRef | undefined;
   singleProductForm: any;
@@ -127,6 +128,7 @@ updateProduct(){
   this.singleProductForm.get('product_img').updateValueAndValidity();
   this.api.updateSingleProduct(formData,this.selectedProductId).subscribe((res)=>{
     console.log(res);
+    this.productAdded.emit(); 
   })
 }
 

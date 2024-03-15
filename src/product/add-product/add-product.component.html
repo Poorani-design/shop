@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
+            <h5 class="modal-title" id="exampleModalLabel">New Product</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -15,11 +15,22 @@
 
                         <input type="text" class="form-control mb-3" formControlName="product_offer_price"
                             placeholder="Promotional price">
-                        <input type="text" class="form-control mb-3" formControlName="product_category_id"
-                            placeholder="Category">
-
-                        <input type="text" class="form-control mb-3" formControlName="product_brand_id"
-                            placeholder="Brand">
+                        <!-- <input type="text" class="form-control mb-3" formControlName="product_category_id"
+                            placeholder="Category"> -->
+                            <select class="form-control mb-3" formControlName="product_category_id">
+                                <option value="">Select Category</option>
+                                <option *ngFor="let cat of categoryList; let i = index" [value]="cat.category_id">
+                                    {{ cat.category_name }}
+                                  </option>
+                              </select>
+                              <select class="form-control mb-3" formControlName="product_brand_id">
+                                <option value="">Select Brand</option>
+                                <option *ngFor="let brand of brandList; let i = index" [value]="brand.brand_id">
+                                    {{ brand.brand_name }}
+                                  </option>
+                              </select>
+                        <!-- <input type="text" class="form-control mb-3" formControlName="product_brand_id"
+                            placeholder="Brand"> -->
                         <input type="text" class="form-control mb-3" formControlName="product_stock_quantity"
                             placeholder="Total Quantity">
                     </div>

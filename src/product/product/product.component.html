@@ -1,4 +1,4 @@
-<app-edit-product [editProductId]="editProductId"></app-edit-product>
+
 <div class="conatiner-fluid bg-white px-2">
     <div class="row">
         <div class="heading d-flex justify-content-between my-3">
@@ -34,8 +34,9 @@
                         <td>{{product.product_name}}</td>
                         <td>{{product.product_price}}</td>
                         <td>{{product.product_offer_price}}</td>
-                        <td>{{product.product_category_id}}</td>
-                        <td>{{product.product_brand_id}}</td>
+                        
+                        <td>{{getCategoryName(product.product_category_id)}}</td>
+                        <td>{{getProductName(product.product_brand_id)}}</td>
                         <!-- <td>{{product.product_img}}</td> -->
                         <td><img class="img-fluid" style="width:25px;height:25px;"
                             [src]="'../../assets/uploads/products/'+product.product_img" loading="lazy" alt=""></td>
@@ -45,7 +46,7 @@
                         <td>
                             <div class="action d-flex ">
                                 <div class="mx-1">
-                                    <button class="btn btn-sm btn-warning" (click)="editSingleProduct(product.product_id)" >Edit</button>
+                                    <button class="btn btn-sm btn-warning" (click)="editSingleProduct(product.product_id)" data-bs-toggle="modal" data-bs-target="#editProductModel" >Edit</button>
                                 </div>
                                 <div class="mx-1">
 
@@ -64,5 +65,10 @@
 <!-- Modal -->
 <div class="modal fade" id="newProductModel" tabindex="-1" aria-labelledby="newProductModelLabel" aria-hidden="true">
     <app-add-product (productAdded)="onProductAdded()"></app-add-product>
+  </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="editProductModel" tabindex="-1" aria-labelledby="editProductModelLabel" aria-hidden="true">
+    <app-edit-product [editProductId]="editProductId" (productAdded)="onProductAdded()"></app-edit-product>
   </div>
   

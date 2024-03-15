@@ -11,11 +11,15 @@ import {RouterModule} from '@angular/router';
 import { BrandComponent } from '../brand/brand/brand.component';
 import { CategoryComponent } from '../category/category/category.component';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from '../login/login.component';
+import { HomeComponent } from '../home/home.component';
 @NgModule({
   declarations: [ 
     
   ],
   imports: [
+    LoginComponent,
+    HomeComponent,
     FormsModule,
     BrowserModule,
     AppComponent,

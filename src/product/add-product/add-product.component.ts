@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonUtilityService } from '../../app/common/common-utility.service';
 import { ApiService } from '../../service/api.service';
-
+import { Category } from '../../app/interface/category';
 @Component({
   selector: 'app-add-product',
   standalone: true,
@@ -12,9 +13,10 @@ import { ApiService } from '../../service/api.service';
 })
 export class AddProductComponent {
   @Output() productAdded: EventEmitter<any> = new EventEmitter<any>();
-
+  categoryList:any=[];
+  brandList:any=[];
   addProductForm: any;
-  constructor(private formBuilder:FormBuilder,private api:ApiService){
+  constructor(private formBuilder:FormBuilder,private api:ApiService,private common:CommonUtilityService){
     this.addProductForm = this.formBuilder.group({
       product_name: ['', [Validators.required, Validators.maxLength(1)]],
       product_price: ['', [Validators.required, Validators.maxLength(1)]],
@@ -27,8 +29,25 @@ export class AddProductComponent {
       product_remarks: ['', [Validators.required, Validators.maxLength(1)]],
     });
 
+    this.common.getCategoryList().subscribe((categoryList) => {
+      this.categoryList = categoryList;
+      console.log(this.categoryList);
+    });
 
+    this.common.getBrandList().subscribe((brandList) => {
+      this.brandList = brandList;
+      console.log(this.brandList);
+     });
   }
+
+  getCategoryList(){
+    this.api.getAllCategory().subscribe((res) => {
+      this.categoryList = res.data;
+      // console.log('category list');
+      // console.log(this.categoryList);
+    });
+  }
+
   onChangeFileInAddForm(event:any){
     const file = event.target.files[0];
     this.addProductForm.patchValue({
