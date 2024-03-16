@@ -1,7 +1,7 @@
 <div class="main">
-  <div class="header">
-    <div class="section1 px-3">
-      <div class="title">
+  <div class="header py-4">
+    <div class="section1 px-3 ">
+      <div class="heading">
         <h3>Microwood</h3>
       </div>
     </div>
@@ -15,14 +15,14 @@
     <div class="row">
       <!-- d-none d-md-block to hide the sidebar while mobile view -->
       <div class="col-md-2 sidebar col-sm-1 col-xs-1">
-        <div class="links " *ngFor="let link of sidebarLinks"  >
-          <a class="link-head" [class.active]="activeLink==link"  [routerLink]="link" (click)="setActiveLink(link)">
+        <div class="links " *ngFor="let link of sidebarLinks">
+          <a class="link-head" [class.active]="activeLink==link" [routerLink]="link" (click)="setActiveLink(link)">
             <div class="d-flex  justify-content-between">
               <div class="icon">
-                ic
+                <img src="" alt="">
               </div>
               <div class="title">
-                {{ link }} 
+                {{ link }}
               </div>
             </div>
           </a>

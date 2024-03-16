@@ -1,3 +1,9 @@
+.container{
+    box-shadow: var(--box-shadow);
+    background: var(--color-light);
+    padding:var(--card-padding);
+    border-radius: var( --border-radius-1);
+}
 .divider {
     height: 100%;
     width: 2px;

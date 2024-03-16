@@ -25,7 +25,7 @@ export const routes: Routes = [
       { path: 'Brand', component: BrandComponent },
       { path: 'Product', component: ProductComponent },
       { path: 'Order', component: OrderComponent },
-      { path: 'Setting', component: SettingComponent },
+      { path: 'Settings', component: SettingComponent },
     ]
   },
   { path: 'login', component: LoginComponent },
