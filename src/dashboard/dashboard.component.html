@@ -1,10 +1,92 @@
-<div class="container-fluid p-3 m-2">
+<div class="container mt-3">
     <div class="row">
-        <div class="bg-white p-5">
-            Dashboard works!
+        <div class="col-md-3 col-xs-12 col-sm-3">
+            <div class="box">
+                <div class="d-flex  justify-content-between">
+                    <div class="right-section">
+                        <div class="logo">
+                            <span class="material-symbols-rounded">
+                                local_shipping
+                                </span>
+                        </div>
+                        <div class="title">
+                            <span>Total Order</span>
+                        </div>
+                        <div class="time">
+                            <span class="text-muted">Updated now</span>
+                        </div>
+                    </div>
+                    <div class="left-section d-flex align-items-center">
+                        <span class="count">{{ totalBrandCount }}</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="bg-white p-3">
-            Brand Count : {{totalBrandCount}} | Category Count : {{totalCategoryCount}} | Product count : {{totalProductCount}}
+        <div class="col-md-3 col-xs-12 col-sm-3">
+            <div class="box">
+                <div class="d-flex  justify-content-between">
+                    <div class="right-section">
+                        <div class="logo">
+                            <span class="material-symbols-rounded">
+                                garden_cart
+                                </span>
+                        </div>
+                        <div class="title">
+                            <span>Total Product</span>
+                        </div>
+                        <div class="time">
+                            <span class="text-muted">Updated now</span>
+                        </div>
+                    </div>
+                    <div class="left-section d-flex align-items-center">
+                        <span class="count">{{ totalBrandCount }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-xs-12 col-sm-3 ">
+            <div class="box">
+                <div class="d-flex  justify-content-between">
+                    <div class="right-section">
+                        <div class="logo">
+                            <span class="material-symbols-rounded icon">
+                                branding_watermark
+                            </span>
+                        </div>
+                        <div class="title">
+                            <span>Total Brand</span>
+                        </div>
+                        <div class="time">
+                            <span class="text-muted">Updated now</span>
+                        </div>
+                    </div>
+                    <div class="left-section d-flex align-items-center">
+                        <span class="count">{{ totalBrandCount }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-xs-12 col-sm-3 ">
+            <div class="box">
+                <div class="d-flex  justify-content-between">
+                    <div class="right-section">
+                        <div class="logo">
+                            <span class="material-symbols-rounded">
+                                category
+                                </span>
+                        </div>
+                        <div class="title">
+                            <span>Total Category</span>
+                        </div>
+                        <div class="time">
+                            <span class="text-muted">Updated now</span>
+                        </div>
+                    </div>
+                    <div class="left-section d-flex align-items-center">
+                        <span class="count">{{ totalBrandCount }}</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

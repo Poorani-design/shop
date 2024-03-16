@@ -23,6 +23,7 @@
     height: 10vh;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color:var( --color-dark-variant);
     color:var(--color-white);
     width:100%;
@@ -55,10 +56,13 @@
   text-align: left;
   cursor: pointer;
 }
-.link-head:hover{
-  color:var(--color-primary);
-  background-color: var(--color-light);
+
+.active {
+  background-color: #f8f9fa; /* Example background color */
+  color: #007bff; /* Example text color */
+  /* Add any other styles for active link */
 }
+
 
 .link-head  {
   padding:20px 15px;

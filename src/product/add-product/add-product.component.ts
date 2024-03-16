@@ -28,7 +28,9 @@ export class AddProductComponent {
       product_description: ['', [Validators.required, Validators.maxLength(1)]],
       product_remarks: ['', [Validators.required, Validators.maxLength(1)]],
     });
-
+    this.toGetCategoryBrand();
+  }
+  toGetCategoryBrand(){
     this.common.getCategoryList().subscribe((categoryList) => {
       this.categoryList = categoryList;
       console.log(this.categoryList);
@@ -40,13 +42,6 @@ export class AddProductComponent {
      });
   }
 
-  getCategoryList(){
-    this.api.getAllCategory().subscribe((res) => {
-      this.categoryList = res.data;
-      // console.log('category list');
-      // console.log(this.categoryList);
-    });
-  }
 
   onChangeFileInAddForm(event:any){
     const file = event.target.files[0];

@@ -18,11 +18,21 @@
 
                         <input type="text" class="form-control mb-3" formControlName="product_offer_price"
                             placeholder="Promotional price">
-                        <input type="text" class="form-control mb-3" formControlName="product_category_id"
+                            <select class="form-control mb-3" formControlName="product_category_id">
+                                <option value="">Select Category</option>
+                                <option *ngFor="let category of categoryList" [value]="category.category_id">{{ category.category_name }}</option>
+                            </select>
+                            
+                            <select class="form-control mb-3" formControlName="product_brand_id">
+                                <option value="">Select Brand</option>
+                                <option *ngFor="let brand of brandList" [value]="brand.brand_id">{{ brand.brand_name }}</option>
+                            </select>
+                            
+                        <!-- <input type="text" class="form-control mb-3" formControlName="product_category_id"
                             placeholder="Category">
 
                         <input type="text" class="form-control mb-3" formControlName="product_brand_id"
-                            placeholder="Brand">
+                            placeholder="Brand"> -->
                         <input type="text" class="form-control mb-3" formControlName="product_stock_quantity"
                             placeholder="Total Quantity">
                     </div>

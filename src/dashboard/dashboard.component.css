@@ -1,0 +1,27 @@
+.box{
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+}
+.box:hover{
+    box-shadow: none;
+}
+.right-section > .logo >span{
+    font-size: 2.3rem;
+    color:var(--color-primary)
+}
+.title{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.count{
+    font-size: 3.2rem;
+    font-weight: 500;
+}
+.right-section> .time{
+    color: var(--color-info-dark);
+    font-size: 0.75rem; 
+    display: flex;
+    align-items:flex-end;
+}

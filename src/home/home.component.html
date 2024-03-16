@@ -1,13 +1,13 @@
 <div class="main">
   <div class="header">
-    <div class="section1">
+    <div class="section1 px-3">
       <div class="title">
-        <h1>A2Z</h1>
+        <h3>Microwood</h3>
       </div>
     </div>
-    <div class="section2">
+    <div class="section2 px-3">
       <div class="user">
-        <a class="p-3 " (click)="logout()">Logout</a>
+        <a class="p-3 text-decoration-none text-white h5" (click)="logout()">Logout</a>
       </div>
     </div>
   </div>
@@ -15,42 +15,18 @@
     <div class="row">
       <!-- d-none d-md-block to hide the sidebar while mobile view -->
       <div class="col-md-2 sidebar col-sm-1 col-xs-1">
-
-        <div class="links">
-          <div class="link-head" routerLink="">
-            <div class="icon">
-              ic
+        <div class="links " *ngFor="let link of sidebarLinks"  >
+          <a class="link-head" [class.active]="activeLink==link"  [routerLink]="link" (click)="setActiveLink(link)">
+            <div class="d-flex  justify-content-between">
+              <div class="icon">
+                ic
+              </div>
+              <div class="title">
+                {{ link }} 
+              </div>
             </div>
-            <div class="title">
-              Home
-            </div>
-          </div>
-          <div class="link-head" routerLink="brand">
-            <div class="icon">
-              ic
-            </div>
-            <div class="title">
-              Brand
-            </div>
-          </div>
-          <div class="link-head" routerLink="category">
-            <div class="icon">
-              ic
-            </div>
-            <div class="title">
-              Category
-            </div>
-          </div>
-          <div class="link-head" routerLink="product">
-            <div class="icon">
-              ic
-            </div>
-            <div class="title">
-              Product
-            </div>
-          </div>
+          </a>
         </div>
-
       </div>
       <div class="col-md-10">
         <div class="wrapper">

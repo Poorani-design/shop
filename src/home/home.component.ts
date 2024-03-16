@@ -13,8 +13,15 @@ import { ApiService } from '../service/api.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  activeLink: string = ''; 
+  sidebarLinks: string[] = ['Home', 'Brand', 'Category', 'Product', 'Order', 'Setting']; // List of sidebar links
+
   constructor(private api:ApiService, private router:Router){
 
+  }
+  setActiveLink(link: string): void {
+    console.log(link)
+    this.activeLink = link;
   }
   logout(){
     console.log("logout")

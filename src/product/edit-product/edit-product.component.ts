@@ -16,6 +16,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { CommonUtilityService } from '../../app/common/common-utility.service';
 import { ApiService } from '../../service/api.service';
 
 @Component({
@@ -29,6 +30,8 @@ export class EditProductComponent {
   
   @Output() productAdded: EventEmitter<any> = new EventEmitter<any>();
   @Input() editProductId: any;
+  categoryList:any;
+  brandList:any;
   @ViewChild('fileInput') fileInput: ElementRef | undefined;
   singleProductForm: any;
   singleProductData: any;
@@ -37,7 +40,7 @@ export class EditProductComponent {
   productImageName:any;
   fileName: any;
   selectedProductId:any;
-  constructor(private api: ApiService, private formBuilder: FormBuilder) {
+  constructor(private api: ApiService, private formBuilder: FormBuilder,private common:CommonUtilityService) {
     this.singleProductForm = new FormGroup({
       product_name: new FormControl(),
       product_price: new FormControl(),
@@ -49,7 +52,21 @@ export class EditProductComponent {
       product_description: new FormControl(),
       product_remarks: new FormControl(),
     });
+    this.toGetCategoryBrand();
   }
+  toGetCategoryBrand(){
+    this.common.getCategoryList().subscribe((categoryList) => {
+      this.categoryList = categoryList;
+      console.log(this.categoryList);
+    });
+
+    this.common.getBrandList().subscribe((brandList) => {
+      this.brandList = brandList;
+      console.log(this.brandList);
+     });
+  }
+
+
   getSelectedProduct() {
     console.log('in edit product component', this.editProductId);
     this.api.getSelectedProduct(this.editProductId).subscribe((res) => {
