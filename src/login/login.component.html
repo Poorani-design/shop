@@ -1,9 +1,39 @@
-<p>login works!</p>
-<!-- login.component.html -->
-
-<div>
-    <input type="text" [(ngModel)]="username" placeholder="Username">
-    <input type="password" [(ngModel)]="password" placeholder="Password">
-    <button (click)="login()">Login</button>
-  </div>
+<div class="wrapper">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 mt-5 bg-warning py-5 px-5 login-section">
+        <h3 class="text-center h2">Login </h3>
+        <!-- <p>login works!</p> -->
+  <!-- login.component.html -->
   
+  <!-- <div>
+      <input type="text" [(ngModel)]="username" placeholder="Username">
+      <input type="password" [(ngModel)]="password" placeholder="Password">
+      <button (click)="login()" type="submit">Login</button>
+    </div>
+     -->
+   
+  
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form2Example1">Username</label>
+        <input type="text" id="form2Example1" class="form-control" [(ngModel)]="username" placeholder="Username"/>
+      
+      </div>
+    
+      <!-- Password input -->
+      <div class="form-outline mb-5">      
+        <label class="form-label" for="form2Example2">Password</label>
+        <input type="password" id="form2Example2" class="form-control"  [(ngModel)]="password" placeholder="Password"/>
+      </div>
+    
+     
+      <button class="btn btn-success btn-lg btn-block col-12" (click)="login()" type="submit">Sign in</button>
+  
+    
+   
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+</div>

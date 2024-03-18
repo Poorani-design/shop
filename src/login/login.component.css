@@ -1,0 +1,11 @@
+.login-section{
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius-2);
+}
+.wrapper{
+    height:100%;
+    width: 100%;
+    background: var(--color-white);
+    display: flex;
+    justify-content: center;
+}

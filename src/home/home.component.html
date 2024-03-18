@@ -14,12 +14,12 @@
   <div class="container-fluid">
     <div class="row">
       <!-- d-none d-md-block to hide the sidebar while mobile view -->
-      <div class="col-md-2 sidebar col-sm-1 col-xs-1">
-        <div class="links " *ngFor="let link of sidebarLinks">
+      <div class="col-md-2 sidebar col-sm-1 col-xs-1" >
+        <div class="links " *ngFor="let link of sidebarLinks;let i=index;">
           <a class="link-head" [class.active]="activeLink==link" [routerLink]="link" (click)="setActiveLink(link)">
             <div class="d-flex  justify-content-between">
               <div class="icon">
-                <img src="" alt="">
+                <img src="../assets/sidebar/{{sidebarImgs[i]}}" class="img-fluid sidebar-icon" alt="{{sidebarImgs[i]}}">
               </div>
               <div class="title">
                 {{ link }}

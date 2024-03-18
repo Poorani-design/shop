@@ -24,6 +24,8 @@ export class LoginComponent {
     if (this.username && this.password) {
       console.log(this.username, this.password);
       this.api.login(this.username, this.password).subscribe((res) => {
+
+        console.log(res)
         if (res && res.status == true) {
           this.api.setLoggedIn();
           this.router.navigate(['']);

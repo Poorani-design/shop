@@ -1,1 +1,10 @@
-<h3>Change Password</h3>
+<form (ngSubmit)="updateUserCredentials()">
+    <label for="newUsername">New Username:</label>
+    <input type="text" id="newUsername" [(ngModel)]="newUsername" name="newUsername" required>
+    
+    <label for="newPassword">New Password:</label>
+    <input type="password" id="newPassword" [(ngModel)]="newPassword" name="newPassword" required>
+  
+    <button type="submit">Update</button>
+  </form>
+  

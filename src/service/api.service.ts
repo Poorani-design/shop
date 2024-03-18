@@ -99,6 +99,18 @@ export class ApiService {
   login(username:any, password:any):Observable<any>{
     return this.http.get(`${this.apiUrl}/user/${username}/${password}`)
   }
+  updateUserCredentials(newUsername: string, newPassword: string): Observable<any> {
+    // Assuming you have some kind of authentication mechanism to get the user ID
+    const userId = this.getUserId(); // Implement this function as per your application's authentication
+
+    return this.http.put(`${this.apiUrl}/user/${userId}`, { newUsername, newPassword });
+  }
+  private getUserId(): any {
+    // Implement your logic to get the user ID, maybe from local storage, token, etc.
+    // This is just a placeholder, you need to replace it with your actual implementation
+    return 'user123';
+  }
+  
   setLoggedIn(): void {
     this.isAuthenticated = true;
     localStorage.setItem('user', 'true'); // Store authentication state

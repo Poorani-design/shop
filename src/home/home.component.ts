@@ -14,6 +14,7 @@ import { ApiService } from '../service/api.service';
 })
 export class HomeComponent {
   activeLink: string = 'Home'; 
+  sidebarImgs:string[]=['home.png','brand.png','category.png','product.png','order.png','setting.png'];
   icon:string[]=['home'];
   sidebarLinks: string[] = ['Home', 'Brand', 'Category', 'Product', 'Order', 'Settings']; // List of sidebar links
 
